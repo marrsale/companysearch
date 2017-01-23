@@ -1,3 +1,12 @@
+Company Search is an example project done for interview purposes.
+
+# CLIENT SPEC
+
+1. User must be able to search for companies by name using the Companies House API.
+2. User must be able to view individual search results for each company.
+3. User must be able to see company officers when viewing an individual company.
+4. User must be able to save a company to an addressbook for later reference.
+
 # NOTES
 
 The app was developed with a conspicuous lack of real TDD or tests besides smoke tests.  
@@ -6,8 +15,10 @@ The app is currently unstyled in order to focus on feature development.
 
 Cleverer schemes for caching and API interaction can be envisioned but are not strictly within scope.
 
+`spec/feature/company_search_spec.rb` is highly overmocked with the intent to test primarily integration and rendering.  Ideally the relevant custom classes would each be tested thoroughly, and fixtures or factories (incl. unpersisted models) would be used for the feature level spec.
+
 # TODO
-- User registration (Devise)
+- ~~User registration (Devise)~~
 - Companies in address book
 - People in address book (Contact)
 - Association of contacts to companies (CompanyContact)

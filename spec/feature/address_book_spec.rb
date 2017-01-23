@@ -17,7 +17,11 @@ feature 'user address book' do
         click_on 'My Addressbook'
       end
 
-      context 'sees their saved companies'
+      context 'sees their saved companies' do
+
+      end
+
+      context "sees the company's officers when viewing it"
     end
 
     context 'can save a company to their addressbook'
