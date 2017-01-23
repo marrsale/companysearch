@@ -6,7 +6,7 @@ class CompaniesSearch < CompaniesHouseResource
   end
 
   def companies
-    @companies ||= search(query)['items'].map &Company.method(:build)
+    @companies ||= search(query)['items'].map &RemoteCompany.method(:build)
   end
 
   def search query

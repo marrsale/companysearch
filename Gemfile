@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
 gem 'launchy' # for save_and_open_page
 gem 'httparty'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

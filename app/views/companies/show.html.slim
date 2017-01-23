@@ -1,5 +1,6 @@
 h1= @company.name
 
+h3 Company Information
 dl
   - if @company.jurisdiction.present?
     dt Jurisdiction
@@ -12,3 +13,26 @@ dl
   - if @company.registered_office_address.present?
     dt Registered Office Address
     dd= @company.registered_office_address.values.join ', '
+
+  - if @company.company_number.present?
+    dt Company Number
+    dd= @company.company_number
+
+- if @company.officers.any?
+  h3 Officers
+  table
+    thead
+      tr
+        td Name
+        td Role
+        td Appointed On
+    - @company.officers.each do |officer|
+      tr
+      - if officer.name.present?
+        td= officer.name
+
+      - if officer.role.present?
+        td= officer.role
+
+      - if officer.appointed_on.present?
+        td= officer.appointed_on
