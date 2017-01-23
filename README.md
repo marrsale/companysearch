@@ -1,24 +1,16 @@
-# README
+# NOTES
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The app was developed with a conspicuous lack of real TDD or tests besides smoke tests.  
 
-Things you may want to cover:
+The app is currently unstyled in order to focus on feature development.
 
-* Ruby version
+Cleverer schemes for caching and API interaction can be envisioned but are not strictly within scope.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# TODO
+- User registration (Devise)
+- Companies in address book
+- People in address book (Contact)
+- Association of contacts to companies (CompanyContact)
+- Pagination on company search (Find API query params)
+- Styling (drop in Bootstrap or UIKit)
+- Rate limiting wrt API interaction

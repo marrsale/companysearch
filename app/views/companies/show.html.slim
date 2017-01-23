@@ -1,0 +1,14 @@
+h1= @company.name
+
+dl
+  - if @company.jurisdiction.present?
+    dt Jurisdiction
+    dd= @company.jurisdiction
+
+  - if @company.date_of_creation.present?
+    dt Date of Creation
+    dd= @company.date_of_creation
+
+  - if @company.registered_office_address.present?
+    dt Registered Office Address
+    dd= @company.registered_office_address.values.join ', '
