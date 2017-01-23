@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%= link_to('Search for a Company', root_path) unless current_page? root_path %>
   <%- if user_signed_in? %>
     <%= link_to 'My Addressbook', companies_path %>
     <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
