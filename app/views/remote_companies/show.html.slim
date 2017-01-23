@@ -1,0 +1,41 @@
+h1= @company.name
+
+h3 Company Information
+dl
+  - if @company.jurisdiction.present?
+    dt Jurisdiction
+    dd= @company.jurisdiction
+
+  - if @company.date_of_creation.present?
+    dt Date of Creation
+    dd= @company.date_of_creation
+
+  - if @company.formatted_address.present?
+    dt Registered Office Address
+    dd= @company.formatted_address
+
+  - if @company.company_number.present?
+    dt Company Number
+    dd= @company.company_number
+
+- if @company.officers.any?
+  h3 Officers
+  table
+    thead
+      tr
+        td Name
+        td Role
+        td Appointed On
+    - @company.officers.each do |officer|
+      tr
+      - if officer.name.present?
+        td= officer.name
+
+      - if officer.role.present?
+        td= officer.role
+
+      - if officer.appointed_on.present?
+        td= officer.appointed_on
+
+- if user_signed_in?
+  = button_to 'Save Company', companies_path(company_number: @company.company_number), method: :post

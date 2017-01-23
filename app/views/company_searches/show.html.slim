@@ -4,6 +4,6 @@ h1 Company Search Results
   ul
     - @company_search.each do |company|
       li
-        a[href=company_path(company.remote_id)]= company.name
+        a[href=remote_company_path(company.remote_id)]= company.name
 - else
   p No companies were found matching your query.

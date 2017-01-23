@@ -17,11 +17,12 @@ Cleverer schemes for caching and API interaction can be envisioned but are not s
 
 `spec/feature/company_search_spec.rb` is highly overmocked with the intent to test primarily integration and rendering.  Ideally the relevant custom classes would each be tested thoroughly, and fixtures or factories (incl. unpersisted models) would be used for the feature level spec.
 
+Patterns emerged that could be refactored into a much more streamlined app with more time and effort -- for example, a `CompanyPresenter` class could be used to normalize the display between viewing the searched company before and after saving.  
+
 # TODO
 - ~~User registration (Devise)~~
-- Companies in address book
-- People in address book (Contact)
-- Association of contacts to companies (CompanyContact)
+- ~~Companies in address book~~
+- ~~Association of contacts to companies (CompanyContact)~~
 - Pagination on company search (Find API query params)
 - Styling (drop in Bootstrap or UIKit)
 - Rate limiting wrt API interaction

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resource :company_search, only: [:new, :create, :show]
 
-  resources :companies, only: [:show]
+  resources :remote_companies, only: [:show]
 
-  resource :address_book, only: [:show]
+  resources :companies, only: [:create, :index, :show]
 end

@@ -2,10 +2,13 @@ require 'rails_helper'
 
 feature 'searching companies' do
   context 'a user' do
+    let(:user) { create :user }
     let(:company_name) { FFaker::Company.name }
     let(:company_number) { '123456789' }
 
     before do
+      sign_in user
+
       visit new_company_search_path
     end
 
@@ -35,7 +38,7 @@ feature 'searching companies' do
           name: company_name,
           date_of_creation: '2016-01-01',
           jurisdiction: 'england-wales',
-          registered_office_address: { city: 'Bangor', country: 'Wales' },
+          formatted_address: 'Bangor, Wales',
           company_number: company_number,
           remote_id: 1,
           officers: [company_officer]
@@ -71,6 +74,10 @@ feature 'searching companies' do
           expect(page).to have_content officer_name
           expect(page).to have_content officer_appointed_on
           expect(page).to have_content officer_role
+        end
+
+        scenario 'can choose to save the company to their addressbook if signed in',skip: 'overmocked' do
+          expect{ click_button 'Save Company' }.not_to raise_error
         end
       end
 

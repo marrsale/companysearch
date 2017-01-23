@@ -11,6 +11,14 @@ class RemoteCompany < CompaniesHouseResource
     @officers ||= RemoteOfficer.for_company remote_id
   end
 
+  def formatted_address
+    if registered_office_address.present?
+      registered_office_address.values.join ', '
+    else
+      ''
+    end
+  end
+
   def method_missing method
     if raw_data.present? and raw_data[method.to_s].present?
       raw_data[method.to_s]
@@ -21,7 +29,7 @@ class RemoteCompany < CompaniesHouseResource
 
   class << self
     def build api_data
-      new api_data['title'], api_data['company_number'], api_data
+      new (api_data['title'] or api_data['company_name']), api_data['company_number'], api_data
     end
 
     def find id
