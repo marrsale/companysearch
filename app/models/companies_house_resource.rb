@@ -11,7 +11,7 @@ class CompaniesHouseResource
   end
 
   def self.auth_headers
-    { Authorization: "Basic #{ENV['companies_house_api_key']}" }
+    { 'Authorization' => "Basic #{ENV['companies_house_api_key']}" }
   end
 
   def auth_headers
