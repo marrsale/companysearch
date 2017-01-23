@@ -13,7 +13,7 @@ class RemoteOfficer < CompaniesHouseResource
   end
 
   def self.for_company company_no
-    result = HTTParty.get api_url + "/company/#{company_no}/officers", headers: auth_headers
+    result = HTTParty.get api_url + "/company/#{company_no}/officers?items_per_page=200", headers: auth_headers
 
     if result.code == 200
       result['items'].map &method(:build)

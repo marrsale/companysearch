@@ -23,6 +23,6 @@ Patterns emerged that could be refactored into a much more streamlined app with 
 - ~~User registration (Devise)~~
 - ~~Companies in address book~~
 - ~~Association of contacts to companies (CompanyContact)~~
-- Pagination on company search (Find API query params)
+- ~~Pagination on company search (Find API query params)~~
 - Styling (drop in Bootstrap or UIKit)
 - Rate limiting wrt API interaction
