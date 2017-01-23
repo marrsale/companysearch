@@ -1,8 +1,11 @@
 class CompaniesSearch < CompaniesHouseResource
-  delegate :any?, :each, to: :companies
+  attr_accessor :query, :offset
 
-  def initialize query;
+  delegate :any?, :size, :each, to: :companies
+
+  def initialize query, offset=nil
     self.query = query
+    self.offset = offset
   end
 
   def companies
@@ -10,8 +13,8 @@ class CompaniesSearch < CompaniesHouseResource
   end
 
   def search query
-    HTTParty.get api_url + "/search/companies?q=#{query}", headers: auth_headers
-  end
+    offset_query = "&" + { start_index: offset }.to_query
 
-  attr_accessor :query
+    HTTParty.get api_url + "/search/companies?q=#{query}" + "#{offset_query unless offset.nil?}", headers: auth_headers
+  end
 end

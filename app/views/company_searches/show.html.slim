@@ -5,5 +5,10 @@ h1 Company Search Results
     - @company_search.each do |company|
       li
         a[href=remote_company_path(company.remote_id)]= company.name
+
+
+  = link_to('Last Page', company_search_path(q: params[:q], offset: @last_offset)) if not @last_offset.nil?
+  = link_to 'Next Page', company_search_path(q: params[:q], offset: @next_offset)
+
 - else
   p No companies were found matching your query.

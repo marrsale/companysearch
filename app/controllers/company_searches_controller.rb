@@ -7,6 +7,9 @@ class CompanySearchesController < ApplicationController
   end
 
   def show
-    @company_search = CompaniesSearch.new params[:q]
+    @company_search = CompaniesSearch.new params[:q], params[:offset]
+
+    @last_offset = (params[:offset].to_i - @company_search.size) if params[:offset].present?
+    @next_offset = (params[:offset].to_i or 0) + @company_search.size
   end
 end
